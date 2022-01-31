@@ -10,6 +10,10 @@ const cartSlice = createSlice({
   //reducers: a map of method represents all the different cases, and
   //the different actions we will handle with the reducers.
   reducers: {
+    replaceCart(state, action) {
+      state.totalQuantity = action.payload.totalQuantity;
+      state.items = action.payload.items;
+    },
     addItemToCart(state, action) {
       const newItem = action.payload;
       const existingItem = state.items.find((item) => item.id === newItem.id);
